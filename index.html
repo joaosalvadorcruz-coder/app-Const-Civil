@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BuildSmart Pro - Plataforma completa para análise, planejamento e execução de projetos de construção civil">
+    <title>BuildSmart Pro - Sua Obra Inteligente</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="40" height="40" rx="8" fill="url(#logo-gradient)"/>
+                        <path d="M12 28V16L20 10L28 16V28H23V21H17V28H12Z" fill="white"/>
+                        <defs>
+                            <linearGradient id="logo-gradient" x1="0" y1="0" x2="40" y2="40">
+                                <stop stop-color="#FF6B35"/>
+                                <stop offset="1" stop-color="#F7931E"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="logo-text">BuildSmart Pro</span>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link active">Início</a></li>
+                    <li><a href="#analysis" class="nav-link">Análise</a></li>
+                    <li><a href="#professionals" class="nav-link">Profissionais</a></li>
+                    <li><a href="#marketplace" class="nav-link">Plantas</a></li>
+                    <li><a href="#design" class="nav-link">Design</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="btn btn-secondary" onclick="openModal('loginModal')">Entrar</button>
+                    <button class="btn btn-primary" onclick="openModal('registerModal')">Cadastrar</button>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-gradient"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Construa com <span class="gradient-text">Inteligência</span>
+                    </h1>
+                    <p class="hero-description">
+                        Análise de terrenos, inspeção de obras, marketplace de profissionais e plantas. 
+                        Tudo que você precisa para construir com segurança e qualidade.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary btn-large" onclick="scrollToSection('analysis')">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 3C10 2.44772 9.55228 2 9 2C8.44772 2 8 2.44772 8 3V9H2C1.44772 9 1 9.44772 1 10C1 10.5523 1.44772 11 2 11H8V17C8 17.5523 8.44772 18 9 18C9.55228 18 10 17.5523 10 17V11H16C16.5523 11 17 10.5523 17 10C17 9.44772 16.5523 9 16 9H10V3Z" fill="currentColor"/>
+                            </svg>
+                            Iniciar Análise
+                        </button>
+                        <button class="btn btn-outline btn-large" onclick="scrollToSection('professionals')">
+                            Ver Profissionais
+                        </button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">5000+</div>
+                            <div class="stat-label">Profissionais</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">10K+</div>
+                            <div class="stat-label">Análises</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Satisfação</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-card card-1">
+                        <div class="card-icon">📊</div>
+                        <div class="card-text">Análise de Terreno</div>
+                    </div>
+                    <div class="floating-card card-2">
+                        <div class="card-icon">🏗️</div>
+                        <div class="card-text">Inspeção de Obras</div>
+                    </div>
+                    <div class="floating-card card-3">
+                        <div class="card-icon">👷</div>
+                        <div class="card-text">Profissionais</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysis Section -->
+    <section id="analysis" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Análise Inteligente</h2>
+                <p class="section-description">Use nossa tecnologia avançada para analisar terrenos e construções</p>
+            </div>
+            <div class="analysis-tabs">
+                <button class="tab-btn active" onclick="switchTab('terrain')">Análise de Terreno</button>
+                <button class="tab-btn" onclick="switchTab('building')">Análise de Construção</button>
+            </div>
+            
+            <!-- Terrain Analysis -->
+            <div id="terrain-content" class="tab-content active">
+                <div class="analysis-grid">
+                    <div class="analysis-card">
+                        <div class="camera-section">
+                            <div class="camera-placeholder" id="terrainCamera">
+                                <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                    <path d="M40 56C48.8366 56 56 48.8366 56 40C56 31.1634 48.8366 24 40 24C31.1634 24 24 31.1634 24 40C24 48.8366 31.1634 56 40 56Z" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M28 16H20C17.7909 16 16 17.7909 16 20V28M52 16H60C62.2091 16 64 17.7909 64 20V28M28 64H20C17.7909 64 16 62.2091 16 60V52M52 64H60C62.2091 64 64 62.2091 64 60V52" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                <p>Clique para ativar a câmera</p>
+                            </div>
+                            <button class="btn btn-primary btn-large" onclick="startTerrainAnalysis()">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M10 4C6.68629 4 4 6.68629 4 10C4 13.3137 6.68629 16 10 16C13.3137 16 16 13.3137 16 10C16 6.68629 13.3137 4 10 4Z" fill="currentColor"/>
+                                </svg>
+                                Analisar Terreno
+                            </button>
+                        </div>
+                    </div>
+                    <div class="analysis-results" id="terrainResults">
+                        <h3>Resultado da Análise</h3>
+                        <div class="result-placeholder">
+                            <p>Inicie uma análise para ver os resultados</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Building Analysis -->
+            <div id="building-content" class="tab-content">
+                <div class="analysis-grid">
+                    <div class="analysis-card">
+                        <div class="camera-section">
+                            <div class="camera-placeholder" id="buildingCamera">
+                                <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                    <path d="M40 56C48.8366 56 56 48.8366 56 40C56 31.1634 48.8366 24 40 24C31.1634 24 24 31.1634 24 40C24 48.8366 31.1634 56 40 56Z" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M28 16H20C17.7909 16 16 17.7909 16 20V28M52 16H60C62.2091 16 64 17.7909 64 20V28M28 64H20C17.7909 64 16 62.2091 16 60V52M52 64H60C62.2091 64 64 62.2091 64 60V52" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                <p>Clique para ativar a câmera</p>
+                            </div>
+                            <button class="btn btn-primary btn-large" onclick="startBuildingAnalysis()">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M10 4C6.68629 4 4 6.68629 4 10C4 13.3137 6.68629 16 10 16C13.3137 16 16 13.3137 16 10C16 6.68629 13.3137 4 10 4Z" fill="currentColor"/>
+                                </svg>
+                                Analisar Construção
+                            </button>
+                        </div>
+                    </div>
+                    <div class="analysis-results" id="buildingResults">
+                        <h3>Resultado da Análise</h3>
+                        <div class="result-placeholder">
+                            <p>Inicie uma análise para ver os resultados</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professionals Section -->
+    <section id="professionals" class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Profissionais Verificados</h2>
+                <p class="section-description">Conecte-se com os melhores profissionais da construção civil</p>
+            </div>
+            <div class="filter-bar">
+                <select class="filter-select">
+                    <option>Todos os Profissionais</option>
+                    <option>Engenheiros</option>
+                    <option>Pedreiros Profissionais</option>
+                    <option>Arquitetos</option>
+                    <option>Construtoras</option>
+                </select>
+                <select class="filter-select">
+                    <option>Todos os Países</option>
+                    <option>Brasil</option>
+                    <option>Portugal</option>
+                    <option>Angola</option>
+                    <option>Moçambique</option>
+                </select>
+                <input type="text" class="filter-input" placeholder="Buscar por nome ou especialidade...">
+            </div>
+            <div class="professionals-grid" id="professionalsGrid">
+                <!-- Professionals will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Marketplace Section -->
+    <section id="marketplace" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Marketplace de Plantas</h2>
+                <p class="section-description">Encontre o projeto perfeito para sua construção</p>
+            </div>
+            <div class="marketplace-categories">
+                <button class="category-btn active" onclick="filterPlans('all')">Todas</button>
+                <button class="category-btn" onclick="filterPlans('residential')">Residencial</button>
+                <button class="category-btn" onclick="filterPlans('commercial')">Comercial</button>
+                <button class="category-btn" onclick="filterPlans('industrial')">Industrial</button>
+            </div>
+            <div class="plans-grid" id="plansGrid">
+                <!-- Plans will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Suggestions Section -->
+    <section id="design" class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sugestões de Design</h2>
+                <p class="section-description">Inspiração para pinturas, acabamentos e mobília</p>
+            </div>
+            <div class="design-tabs">
+                <button class="tab-btn active" onclick="switchDesignTab('paint')">Pintura</button>
+                <button class="tab-btn" onclick="switchDesignTab('furniture')">Mobília</button>
+                <button class="tab-btn" onclick="switchDesignTab('finishing')">Acabamentos</button>
+            </div>
+            <div id="paint-content" class="design-tab-content active">
+                <div class="design-grid" id="paintGrid">
+                    <!-- Paint designs will be loaded here -->
+                </div>
+            </div>
+            <div id="furniture-content" class="design-tab-content">
+                <div class="design-grid" id="furnitureGrid">
+                    <!-- Furniture designs will be loaded here -->
+                </div>
+            </div>
+            <div id="finishing-content" class="design-tab-content">
+                <div class="design-grid" id="finishingGrid">
+                    <!-- Finishing designs will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Entrar</h2>
+            <form class="modal-form" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" required placeholder="seu@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input type="password" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn btn-primary btn-large">Entrar</button>
+                <p class="modal-footer">Não tem conta? <a href="#" onclick="closeModal('loginModal'); openModal('registerModal')">Cadastre-se</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('registerModal')">&times;</span>
+            <h2>Cadastrar</h2>
+            <form class="modal-form" onsubmit="handleRegister(event)">
+                <div class="form-group">
+                    <label>Tipo de Usuário</label>
+                    <select required>
+                        <option value="">Selecione...</option>
+                        <option value="client">Cliente</option>
+                        <option value="engineer">Engenheiro</option>
+                        <option value="professional">Pedreiro Profissional</option>
+                        <option value="amateur">Pedreiro Amador</option>
+                        <option value="architect">Arquiteto</option>
+                        <option value="company">Construtora</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Nome Completo</label>
+                    <input type="text" required placeholder="Seu nome completo">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" required placeholder="seu@email.com">
+                </div>
+                <div class="form-group">
+                    <label>País</label>
+                    <select required>
+                        <option value="">Selecione...</option>
+                        <option value="BR">Brasil</option>
+                        <option value="PT">Portugal</option>
+                        <option value="AO">Angola</option>
+                        <option value="MZ">Moçambique</option>
+                        <option value="CV">Cabo Verde</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input type="password" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn btn-primary btn-large">Cadastrar</button>
+                <p class="modal-footer">Já tem conta? <a href="#" onclick="closeModal('registerModal'); openModal('loginModal')">Entre</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" rx="8" fill="url(#footer-logo-gradient)"/>
+                            <path d="M12 28V16L20 10L28 16V28H23V21H17V28H12Z" fill="white"/>
+                            <defs>
+                                <linearGradient id="footer-logo-gradient" x1="0" y1="0" x2="40" y2="40">
+                                    <stop stop-color="#FF6B35"/>
+                                    <stop offset="1" stop-color="#F7931E"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span class="logo-text">BuildSmart Pro</span>
+                    </div>
+                    <p>Transformando a construção civil com tecnologia e inteligência.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Produto</h4>
+                    <ul>
+                        <li><a href="#analysis">Análise</a></li>
+                        <li><a href="#professionals">Profissionais</a></li>
+                        <li><a href="#marketplace">Plantas</a></li>
+                        <li><a href="#design">Design</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#">Sobre</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Carreiras</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacidade</a></li>
+                        <li><a href="#">Termos</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BuildSmart Pro. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
